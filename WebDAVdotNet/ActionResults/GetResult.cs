@@ -28,12 +28,6 @@ namespace WebDAVdotNet.ActionResults
         }
 
 
-        //public static GetResult CreateGetResult(WebDAVEngineBase engine, string resource)
-        //{
-        //    return null;
-        //}
-
-
         public override void ExecuteResult(ControllerContext context)
         {
             string path = context.RequestContext.HttpContext.Request.Path;
@@ -43,9 +37,7 @@ namespace WebDAVdotNet.ActionResults
                 throw new Exception("too many results - should be 0 or 1");
 
             IHierarchyItem item = items.First();
-
             HttpResponseBase response = context.RequestContext.HttpContext.Response;
-
 
             if (item != null && item is IFile)
             {
